@@ -93,12 +93,14 @@ const flatArr = arr.map(input => mutateFlatArray(input, 'guest_booking'));
 const clonedFlat = flatArr.map(x => ({...x}));
 const totalArr = clonedFlat.map(input => someTotalArray(input));
 // just used js filter
+// challenge # 3
 const filteredArr = clonedFlat.filter(input => input.guest_type === 'guest');
 // just used js sort
 
 // another spread operator deep copy to maintain integrity of challenge # 3
 const clonedFiltered = filteredArr.map(y => ({...y}));
 
+// challenge # 4
 const alphaOrderArr = clonedFiltered.sort(function(a, b) {
   if (a.last_name === b.last_name) {
     if(a.first_name < b.first_name) {
@@ -109,8 +111,6 @@ const alphaOrderArr = clonedFiltered.sort(function(a, b) {
   if(a.last_name > b.last_name) { return 1 };
   return 0;
 });
-
-console.log('alphaOrderArr', alphaOrderArr);
 
 $(document).ready(function() {
   $('#originalArray').html(JSON.stringify(arr, null, 2));
